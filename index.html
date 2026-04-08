@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashley Lee Portfolio</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial, Helvetica, sans-serif;background:#f5f2ec;color:#222;line-height:1.6}
+    header{position:sticky;top:0;background:#ffffffee;border-bottom:1px solid #ddd}
+    .nav{max-width:1100px;margin:auto;padding:20px;display:flex;justify-content:space-between;align-items:center}
+    .nav h1{font-size:26px}
+    .nav p{font-size:13px;color:#777}
+    .nav a{margin-left:20px;text-decoration:none;color:#444;font-size:14px}
+
+    .hero{display:flex;align-items:center;justify-content:center;text-align:center;height:80vh;padding:0 20px}
+    .hero h2{font-size:56px;margin-bottom:10px}
+    .hero p{font-size:18px;color:#666}
+
+    section{max-width:1100px;margin:auto;padding:40px 20px}
+    h3{font-size:32px;margin-bottom:20px}
+
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:white;padding:20px;border-radius:20px;border:1px solid #ddd}
+    .card-image{height:220px;border-radius:14px;margin-bottom:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .card img{width:100%;height:100%;object-fit:cover;border-radius:14px;display:block}
+    .card h4{font-size:18px;margin-top:6px;font-weight:600}
+
+    .contact{background:white;padding:40px;text-align:center;border-radius:20px;border:1px solid #ddd}
+
+    @media(max-width:900px){
+      .projects{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div>
+      <h1>Ashley Lee</h1>
+      <p>Portfolio</p>
+    </div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h2>Ashley Lee</h2>
+    <p>Portfolio for Mural Assistant</p>
+  </div>
+</section>
+
+<section id="about">
+  <h3>About Me</h3>
+  <div class="about">
+    <p>I am an artist with experience in painting and hands-on studio practice, with a strong interest in contributing to large-scale, collaborative projects such as mural work.
+
+Although I do not have direct experience in hand-painting murals, I am highly patient, detail-oriented, and able to work carefully with consistency and precision. I am confident in my ability to focus on specific sections of a project while maintaining overall visual cohesion.
+
+I am comfortable working in collaborative environments, including guiding and working alongside others when needed. I am also flexible with scheduling and committed to contributing reliably to the progress of the project.
+</p>
+  </div>
+</section>
+
+<section id="work">
+  <h3>Selected Work</h3>
+  <div class="projects">
+
+    <div class="card">
+      <div class="card-image"><img src="image/2Dimage1.jpeg"></div>
+      <h4>Paris</h4>
+      <p>Gouache on Paper</p>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="image/2Dimage2.jpeg"></div>
+      <h4>Untitled</h4>
+      <p>Pencil on Paper</p>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="image/2Dimage3.jpeg"></div>
+      <h4>Memory </h4>
+      <p>Pen and Gouache on Paper</p>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="image/2Dimage4.jpeg"></div>
+      <h4>Alienation</h4>
+      <p>Gouache and Pencil on Paper</p>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="image/2Dimage5.jpg"></div>
+      <h4>Negligence</h4>
+      <p>Acrylic, Gouache, and Gel Medium on Paper</p>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="image/2Dimage6.jpg"></div>
+      <h4>Puzzling</h4>
+      <p>Mixed Media</p>
+    </div>
+
+    <div class="card">
+      <div class="card-image"><img src="image/2Dimage7.jpeg"></div>
+      <h4>Bouquet of Diversity </h4>
+      <p>Gouache, Acrylic, and Colered Pencil on Paper</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <h3>Contact</h3>
+    <p>Email: ashleyhlee050421@gmail.com</p>
+    <p>Phone: (518) 390-9707</p>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999;">
+  <img id="lightbox-img" src="" style="max-width:92vw;max-height:92vh;border-radius:16px;" />
+</div>
+
+<script>
+  const imgs = document.querySelectorAll('.card img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  imgs.forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    }
+  });
+</script>
+
+</body>
+</html>
